@@ -3,6 +3,7 @@
 
 h1 {
   font-size: 50px;
+  font-weight: 400;
 }
 
 h3 {
@@ -32,6 +33,16 @@ h3 {
   align-items: center;
 }
 
+@media screen and (max-width: 435px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  label {
+    justify-content: center;
+  }
+}
+
 .textarea {
   background: #292929;
   color: rgba(255, 255, 255, 0.87);
@@ -59,16 +70,25 @@ label {
   line-height: 16px;
   text-transform: uppercase;
   border: 1px solid #03dac5;
-  background: transparent;
   min-width: 150px;
   transition: all 0.3s ease-in-out;
   margin-left: 3em;
-  height: 50px;
+  color: #ffffff;
+  background: #03dac5;
+  margin: 5px;
 }
 
 .submit:hover {
-  color: #ffffff;
+  background: transparent;
+}
+
+.stop {
+  background: transparent;
+}
+
+.stop:hover {
   background: #03dac5;
+  color: #ffffff;
 }
 
 .range-wrapper {
@@ -87,7 +107,13 @@ label {
 
 .result {
   font-size: 60px;
-  animation: raising 1s ease-in-out infinite;
+  /* animation: raising 1s ease infinite; */
+}
+
+@media screen and (max-width: 425px) {
+  .result {
+    font-size: 35px;
+  }
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -115,16 +141,13 @@ input[type="range"]::-webkit-slider-runnable-track {
 @keyframes raising {
   0% {
     opacity: 0;
-    transform: translate(10px);
   }
 
   50% {
-    transform: translate(0);
     opacity: 1;
   }
 
   100% {
-    transform: translate(-10);
     opacity: 0;
   }
 }
